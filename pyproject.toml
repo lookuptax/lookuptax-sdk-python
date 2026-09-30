@@ -1,0 +1,47 @@
+[project]
+name = "lookuptax"
+version = "1.0.0"
+description = "Official LookupTax SDK — validate tax IDs (VAT, EIN, GSTIN, ABN…) against government registries."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = ["httpx>=0.24"]
+keywords = ["tax", "vat", "vat-validation", "ein", "gstin", "abn", "tax-id", "lookuptax"]
+authors = [{ name = "LookupTax", email = "info@lookuptax.com" }]
+maintainers = [{ name = "LookupTax", email = "info@lookuptax.com" }]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  # One classifier per supported minor, so PyPI's sidebar and tooling that
+  # filters on them both agree with requires-python above.
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Office/Business :: Financial",
+  "Typing :: Typed",
+]
+
+# These become the link list on the PyPI project page. Without them the page
+# has no route back to the source or to support.
+[project.urls]
+Homepage = "https://lookuptax.com"
+Documentation = "https://lookuptax.com/docs"
+Repository = "https://github.com/lookuptax/lookuptax-sdk-python"
+Issues = "https://github.com/lookuptax/lookuptax-sdk-python/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "respx>=0.20", "mypy>=1.5"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lookuptax"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
